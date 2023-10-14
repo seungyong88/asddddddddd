@@ -4,14 +4,14 @@ const path = require("path");
 const app = express();
 const port = 5000;
 
-const staticDir = path.join(__dirname, "/build");
+const staticDir = path.join(__dirname, "/");
 const spaIndex = path.join(staticDir, "index.html");
 
 app.use(express.static(staticDir));
 
 app.get("*", (req, res) => {
-  // res.sendFile(spaIndex);
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(spaIndex);
+    // res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(port, () => {
