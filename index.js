@@ -11,13 +11,12 @@ app.use(express.urlencoded({ extended: true}));
 const cors = require('cors');
 app.use(cors());
 
-const path = require('path');
-app.use(express.static(path.join(__dirname, 'public/build')));
+// const path = require('path');
+// app.use(express.static(path.join(__dirname, '/static')));
 
-app.get('/', function (요청, 응답) {
-  응답.sendFile(path.join(__dirname, '/public/build/index.html'));
-});
-
+// app.get('/', function (요청, 응답) {
+//   응답.sendFile(path.join(__dirname, '/index.html'));
+// });
 
 const fs = require('fs');
 const rdfxml = require('rdfxml-streaming-parser');
@@ -95,7 +94,8 @@ app.get("/api/menu", (req, res) => {
   return res.json({ok: true, menu });
 })
 
-const staticDir = path.join(__dirname, "/");
+const path = require("path");
+const staticDir = path.join(__dirname, "/static");
 const spaIndex = path.join(staticDir, "index.html");
 
 app.use(express.static(staticDir));
