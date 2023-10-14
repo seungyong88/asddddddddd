@@ -105,4 +105,4 @@ app.get("*", (req, res) => {
     // res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.listen(8000, () => console.log("server on"));
+app.listen(3000, () => console.log("server on"));
